@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚋 MetroBus Bateu?
 
-## Getting Started
+Um contador humorístico dos acidentes do Metrobus em Coimbra. Porque rir é o melhor remédio... para além de travões.
 
-First, run the development server:
+## Sobre
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este site acompanha os acidentes envolvendo o Metrobus (Metro Mondego) em Coimbra, Portugal, mostrando um cronómetro em tempo real desde o último incidente registado.
+
+**⚠️ Aviso:** Este site é uma paródia e não tem qualquer afiliação oficial com o Metro Mondego.
+
+## Funcionalidades
+
+- ⏱️ Contador em tempo real desde o último acidente
+- 📋 Histórico completo de acidentes com datas, locais e fontes
+- 📰 Links para as notícias originais
+- 📱 Design responsivo
+
+## Tecnologias
+
+- [Next.js 16](https://nextjs.org/) - Framework React
+- [Tailwind CSS 4](https://tailwindcss.com/) - Styling
+- Markdown - Armazenamento de dados dos acidentes
+
+## Adicionar um novo acidente
+
+Para registar um novo acidente, cria um ficheiro Markdown em `src/data/acidentes/` com o seguinte formato:
+
+```markdown
+---
+data: 2025-12-06T10:50:00
+local: Solum, Coimbra
+titulo: Colisão entre Metrobus e automóvel na Solum
+fonte: https://exemplo.pt/noticia
+---
+
+Descrição opcional do acidente.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O nome do ficheiro deve seguir o padrão: `AAAA-MM-DD-descricao.md`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Desenvolvimento
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Instalar dependências
+npm install
 
-## Learn More
+# Iniciar servidor de desenvolvimento
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# Abrir http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build Estático
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O site é exportado como HTML estático:
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Os ficheiros estáticos são gerados na pasta `out/` e podem ser hospedados em qualquer servidor web estático (GitHub Pages, Netlify, Vercel, etc).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licença
+
+MIT
+
+---
+
+Feito com 🚋 em Coimbra
