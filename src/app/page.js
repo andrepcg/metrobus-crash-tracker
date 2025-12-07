@@ -27,11 +27,13 @@ export default function Home() {
         {/* Hero Section */}
         <div className="text-center mb-12 sm:mb-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-zinc-100">
-            MetroBus <span className="text-metrobus">Bateu</span>?
+            <span className="line-through text-zinc-600 decoration-2">MetroBus Bateu?</span>
+            <br />
+            <span className="text-metrobus">Bateram</span> no MetroBus!
           </h1>
           <p className="text-zinc-500 text-base sm:text-lg max-w-xl mx-auto">
-            Um contador humorístico dos acidentes do Metrobus em Coimbra.
-            Porque rir é o melhor remédio... para além de travões.
+            Um contador dos acidentes <span className="italic">causados por outros condutores</span> ao Metrobus em Coimbra.
+            Porque a culpa nunca é do elétrico... é de quem não olha para ele (e potencialmente no mar de semáforos).
           </p>
         </div>
 

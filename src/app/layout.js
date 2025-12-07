@@ -13,12 +13,12 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "MetroBus Bateu? - Dias sem acidentes em Coimbra",
-  description: "Quantos dias passaram desde o último acidente do Metrobus em Coimbra? Um contador humorístico dos acidentes do Metro Mondego.",
-  keywords: ["metrobus", "coimbra", "acidentes", "metro mondego", "portugal", "metrobus bateu"],
+  title: "Bateram no MetroBus! - Dias sem acidentes em Coimbra",
+  description: "Quantos dias passaram desde que alguém bateu no Metrobus em Coimbra? Um contador dos acidentes causados por outros condutores ao Metro Mondego.",
+  keywords: ["metrobus", "coimbra", "acidentes", "metro mondego", "portugal", "bateram no metrobus"],
   openGraph: {
-    title: "MetroBus Bateu?",
-    description: "Quantos dias passaram desde o último acidente do Metrobus em Coimbra?",
+    title: "Bateram no MetroBus!",
+    description: "Quantos dias passaram desde que alguém bateu no Metrobus em Coimbra?",
     type: "website",
   },
 };
