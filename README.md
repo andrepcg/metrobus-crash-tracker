@@ -2,6 +2,8 @@
 
 Um contador humorístico dos acidentes do Metrobus em Coimbra. Porque rir é o melhor remédio... para além de travões.
 
+https://metrobusbateu.pt/
+
 ## Sobre
 
 Este site acompanha os acidentes envolvendo o Metrobus (Metro Mondego) em Coimbra, Portugal, mostrando um cronómetro em tempo real desde o último incidente registado.
