@@ -13,6 +13,7 @@ Este site acompanha os acidentes envolvendo o Metrobus (Metro Mondego) em Coimbr
 ## Funcionalidades
 
 - ⏱️ Contador em tempo real desde o último acidente
+- 📍 Mapa de acidentes
 - 📋 Histórico completo de acidentes com datas, locais e fontes
 - 📰 Links para as notícias originais
 - 📱 Design responsivo
