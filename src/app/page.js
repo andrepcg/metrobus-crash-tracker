@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Contador from "@/components/Contador";
-import { getUltimoAcidente, getAllAcidentes, getTotalAcidentes } from "@/lib/acidentes";
+import {
+  getUltimoAcidente,
+  getAllAcidentes,
+  getTotalAcidentes,
+} from "@/lib/acidentes";
+import LocationMap from "@/components/LocationMap";
 
 export default function Home() {
   const ultimoAcidente = getUltimoAcidente();
@@ -92,6 +97,13 @@ export default function Home() {
             <p className="text-zinc-500 mt-2">acidentes registados</p>
           </div>
         </div>
+
+        <section className="mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 text-zinc-100">
+            Mapa de Acidentes 🗺️
+          </h2>
+          <LocationMap accidents={acidentes} />
+        </section>
 
         {/* Accident History */}
         <section>
