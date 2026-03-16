@@ -19,6 +19,8 @@ export function getAllAcidentes() {
         local: data.local,
         titulo: data.titulo,
         fonte: data.fonte,
+        latitude: parseFloat(data.latitude),
+        longitude: parseFloat(data.longitude),
         descricao: content.trim(),
       };
     })
