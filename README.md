@@ -33,6 +33,8 @@ Para registar um novo acidente, cria um ficheiro Markdown em `src/data/acidentes
 data: 2025-12-06T10:50:00
 local: Solum, Coimbra
 titulo: Colisão entre Metrobus e automóvel na Solum
+latitude: 40.203278
+longitude: -8.424668
 fonte: https://exemplo.pt/noticia
 ---
 
