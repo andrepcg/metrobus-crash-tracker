@@ -4,6 +4,9 @@
   --background: #09090b;
   --foreground: #fafafa;
   --metrobus: #f2a42a;
+  --map-station: #f2a42a;
+  --map-accident: #ef4444;
+  --map-border: #ffffff;
 }
 
 @theme inline {
@@ -26,9 +29,12 @@ body {
 
 /* Smooth animations */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }

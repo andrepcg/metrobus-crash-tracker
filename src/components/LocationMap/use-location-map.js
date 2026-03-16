@@ -1,25 +1,35 @@
 import { useEffect, useRef } from "react";
 import stationsData from "@/data/stations.json";
 
-const MARKER_CONFIG = {
+const getCSSVariable = (varName) => {
+  return getComputedStyle(document.documentElement)
+    .getPropertyValue(varName)
+    .trim();
+};
+
+const getMarkerConfig = () => ({
   station: {
     radius: 5,
-    fillColor: "#F59E0B",
-    color: "#FFFFFF",
+    fillColor: getCSSVariable("--map-station"),
+    color: getCSSVariable("--map-border"),
     weight: 2,
     opacity: 1,
     fillOpacity: 0.8,
   },
   accident: {
     radius: 8,
-    fillColor: "#EF4444",
-    color: "#FFFFFF",
+    fillColor: getCSSVariable("--map-accident"),
+    color: getCSSVariable("--map-border"),
     weight: 2,
     opacity: 1,
     fillOpacity: 0.9,
   },
-  route: { color: "#F59E0B", weight: 4, opacity: 0.8 },
-};
+  route: {
+    color: getCSSVariable("--map-station"),
+    weight: 4,
+    opacity: 0.8,
+  },
+});
 
 const ICON_URL = {
   retina:
@@ -64,8 +74,6 @@ export function useLocationMap(accidents) {
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
       {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         maxZoom: 19,
       },
     ).addTo(map);
@@ -83,39 +91,39 @@ export function useLocationMap(accidents) {
   };
 
   const addRoutes = (map, L) => {
+    const config = getMarkerConfig();
     stationsData.routes.forEach((route) => {
       const coordinates = route.trackPoints || [];
       if (coordinates.length > 0) {
-        L.polyline(coordinates, MARKER_CONFIG.route).addTo(map);
+        L.polyline(coordinates, config.route).addTo(map);
       }
     });
   };
 
   const addStations = (map, L) => {
+    const config = getMarkerConfig();
     stationsData.stations.forEach((station) => {
-      L.circleMarker(
-        [station.latitude, station.longitude],
-        MARKER_CONFIG.station,
-      )
+      L.circleMarker([station.latitude, station.longitude], config.station)
         .bindPopup(`<strong>${station.name}</strong>`)
         .addTo(map);
     });
   };
 
   const addAccidents = (map, L, accidents) => {
+    const config = getMarkerConfig();
+    const accidentColor = getCSSVariable("--map-accident");
+    const stationColor = getCSSVariable("--map-station");
+
     accidents.forEach((accident) => {
       if (accident.latitude && accident.longitude) {
-        L.circleMarker(
-          [accident.latitude, accident.longitude],
-          MARKER_CONFIG.accident,
-        )
+        L.circleMarker([accident.latitude, accident.longitude], config.accident)
           .bindPopup(
-            `<strong style="color: #EF4444;">${accident.titulo}</strong><br>
+            `<strong style="color: ${accidentColor};">${accident.titulo}</strong><br>
             <small>${accident.local}</small><br>
             <small>${new Date(accident.data).toLocaleDateString(
               "pt-PT",
             )}</small><br>
-            ${accident.fonte ? `<a href="${accident.fonte}" target="_blank" rel="noopener noreferrer" style="color: #F59E0B; text-decoration: none;">Ver notícia →</a>` : ""}`,
+            ${accident.fonte ? `<a href="${accident.fonte}" target="_blank" rel="noopener noreferrer" style="color: ${stationColor}; text-decoration: none;">Ver notícia →</a>` : ""}`,
           )
           .addTo(map);
       }
