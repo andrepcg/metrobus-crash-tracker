@@ -35,4 +35,3 @@ export function getUltimoAcidente() {
 export function getTotalAcidentes() {
   return getAllAcidentes().length;
 }
-
